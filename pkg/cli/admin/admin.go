@@ -5,6 +5,7 @@ import (
 
 	"github.com/openshift/oc/pkg/cli/admin/buildchain"
 	"github.com/openshift/oc/pkg/cli/admin/catalog"
+	"github.com/openshift/oc/pkg/cli/admin/collectmetrics"
 	"github.com/openshift/oc/pkg/cli/admin/copytonode"
 	"github.com/openshift/oc/pkg/cli/admin/createbootstrapprojecttemplate"
 	"github.com/openshift/oc/pkg/cli/admin/createerrortemplate"
@@ -61,6 +62,7 @@ func NewCommandAdmin(f kcmdutil.Factory, streams genericclioptions.IOStreams) *c
 				upgrade.New(f, streams),
 				top.NewCommandTop(f, streams),
 				mustgather.NewMustGatherCommand(f, streams),
+				collectmetrics.NewCollectMetricsCommand(f, streams),
 				inspect.NewCmdInspect(streams),
 				ocpcertificates.NewCommandOCPCertificates(f, streams),
 				waitforstable.NewCmdWaitForStableClusterOperators(f, streams),
